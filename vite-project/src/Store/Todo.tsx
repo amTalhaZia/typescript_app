@@ -14,6 +14,8 @@ export type Todo = {
 export type TodoContext = {
   todos: Todo[];
   handleAddTodo: (task: string) => void;
+  toggledTodoAsCompleted: (id: string) => void;
+  deleteHandler : (id:string)=> void;
 };
 
 export const TodoContext = createContext<TodoContext | null>(null);
@@ -33,19 +35,42 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
     ]);
   };
 
+  // completed
+
+  const toggledTodoAsCompleted = (id: string) => {
+    setTodos((prev) =>
+      prev.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo; 
+      })
+    );
+  };
+  
+
+
+  // delte  property
+
+  const deleteHandler = (id : string) =>{
+    setTodos((prev)=> 
+     prev.filter((todo)=>{
+      return  todo.id !== id
+     })
+    )
+  }
+
   return (
-    <TodoContext.Provider value={{ todos, handleAddTodo }}>
+    <TodoContext.Provider value={{ todos, handleAddTodo, toggledTodoAsCompleted,deleteHandler}}>
       {children}
     </TodoContext.Provider>
   );
 };
 
-
-
-export  const usetodos = () => {
-  const consumer  = useContext(TodoContext)
-  if(!consumer){
-    throw new Error ('plz  provide wrapper')
-  };
+export const usetodos = () => {
+  const consumer = useContext(TodoContext);
+  if (!consumer) {
+    throw new Error("plz  provide wrapper");
+  }
   return consumer;
-}
+};
