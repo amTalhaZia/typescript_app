@@ -1,0 +1,91 @@
+.ts{
+  text-align: center;
+}
+  /* Navbar.css */
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .navbar-link {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+  }
+  
+  .navbar-link:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Addtodo.css */
+.addtodo-container {
+    margin-top: 20px;
+  }
+  
+  .addtodo-form {
+    display: flex;
+  }
+  
+  .addtodo-input {
+    flex: 1;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .addtodo-button {
+    padding: 5px 10px;
+    background-color: #008000;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .addtodo-button:hover {
+    background-color: #006400;
+  }
+  
+  
+
+  /* Todo.css */
+.todo-container {
+    margin-top: 20px;
+  }
+  
+  .todo-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .todo-item {
+    margin-bottom: 10px;
+  }
+  
+  .todo-checkbox {
+    margin-right: 5px;
+  }
+  
+  .todo-label {
+    margin-left: 5px;
+  }
+  
+  .delete-button {
+    margin-left: 10px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+  
+  .delete-button:hover {
+    background-color: #cc0000;
+  }
+  

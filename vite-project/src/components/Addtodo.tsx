@@ -1,31 +1,32 @@
-import React,{FormEvent, useState} from 'react'
-import { usetodos } from '../Store/Todo'
-import { useParams, useSearchParams } from 'react-router-dom'
+// Addtodo.tsx
+import React, { FormEvent, useState } from "react";
+import { useTodos } from "../Store/Todo";
 
 const Addtodo = () => {
-    const [todo, setTodo] = useState('');
-    const{handleAddTodo} = usetodos();
+  const [todo, setTodo] = useState("");
+  const { handleAddTodo } = useTodos();
 
-  const [searchParams] = useSearchParams(); 
-
-  const todoFilter = searchParams.get('todos')
-   console.log(todoFilter);
-   
-
-    const submitHandler = (e :FormEvent<HTMLFormElement>) =>{
-         e.preventDefault();
-         handleAddTodo(todo);
-         setTodo('')
-    }
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleAddTodo(todo);
+    setTodo("");
+  };
 
   return (
-    <div>
-        <form onSubmit={submitHandler} >
-            <input type="text" value={todo} onChange={(e)=>{setTodo(e.target.value)}} />
-             <button type='submit' >Add</button>
-        </form>
+    <div className="addtodo-container">
+      <form onSubmit={submitHandler} className="addtodo-form">
+        <input
+          type="text"
+          value={todo}
+          onChange={(e) => {
+            setTodo(e.target.value);
+          }}
+          className="addtodo-input"
+        />
+        <button type="submit" className="addtodo-button">Add</button>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default Addtodo
+export default Addtodo;
